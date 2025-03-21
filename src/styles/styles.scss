@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+$green-200: hsl(148, 38%, 91%);
+$green-600: hsl(169, 82%, 27%);
+$red: hsl(0, 66%, 54%);
+$white: hsl(0, 0%, 100%);
+$grey-500: hsl(186, 15%, 59%);
+$grey-900: hsl(187, 24%, 22%);
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-left {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+@mixin flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  margin: 0 auto;
+  text-align: center;
+  color: $green-600;
+  font-family: Karla,sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  background-color: $green-200;
+  width:100%;
+  min-height: 100vh;
+}
+
+main {
+  @include flex-center;
+  flex-direction: column;
+  min-height: 100vh;
+  width:100%;
+  gap:2.5rem;
+}
+
+#card-container{
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: $white;
+  width:80%;
+}
