@@ -59,16 +59,16 @@ const App = () => {
       <form className="contact__form" onSubmit={handleSubmit} aria-labelledby="contact__heading" noValidate>
         {/* success message */}
            {successMessage && <div className="success__message" aria-live="polite">
-            <h3> 
+            <h2> 
               <img src={successCheckIcon} alt="success check icon"/>
               Message Sent!
-              </h3>
+              </h2>
              <p>{successMessage}</p>
             </div>
             } 
 
             {/* form title */}
-            <h2 id="contact__heading">Contact Us</h2>
+            <h1 id="contact__heading">Contact Us</h1>
    
           {/* first name */}
         <div className="form__group">
@@ -117,7 +117,7 @@ const App = () => {
 
         {/* query type */}
         <div className="form__group">
-          <fieldset tabIndex="0" aria-required="true" aria-describedby="queryType__error">
+          <fieldset aria-required="true" aria-describedby="queryType__error">
             <legend>Query Type *</legend>
             <div className="radio__group">
               <label htmlFor="generalEnquiry">

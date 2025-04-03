@@ -56,10 +56,12 @@ main {
     text-align: left;
     width: 80%;
 
-    h3{
+    h2{
       display: flex;
       gap:5px;
       align-items: center;
+      color: $white;
+      font-size: 1.25rem;;
     }
   }
 
