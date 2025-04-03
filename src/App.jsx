@@ -57,14 +57,20 @@ const App = () => {
   return (
     <main>
       <form className="contact__form" onSubmit={handleSubmit} aria-labelledby="contact__heading" noValidate>
-           {successMessage && <div className="success__message" aria-labelledby="contact__heading">
+        {/* success message */}
+           {successMessage && <div className="success__message" aria-live="polite">
             <h3> 
               <img src={successCheckIcon} alt="success check icon"/>
-              Message Sent!</h3>
+              Message Sent!
+              </h3>
              <p>{successMessage}</p>
-            </div>} 
+            </div>
+            } 
+
+            {/* form title */}
             <h2 id="contact__heading">Contact Us</h2>
    
+          {/* first name */}
         <div className="form__group">
           <label htmlFor="firstName">First Name *</label>
           <input
@@ -74,9 +80,12 @@ const App = () => {
             value={formData.firstName}
             onChange={handleChange}
             aria-required="true"
+            aria-describedby="firstName-error"
           />
-          {errors.firstName && <p className="error__message">{errors.firstName}</p>}
+          {errors.firstName && <p className="error__message" id="firstName__error" aria-live="polite">{errors.firstName}</p>}
         </div>
+
+          {/* last name */}
         <div className="form__group">
           <label htmlFor="lastName">Last Name *</label>
           <input
@@ -86,9 +95,12 @@ const App = () => {
             value={formData.lastName}
             onChange={handleChange}
             aria-required="true"
+            aria-describedby="lastName-error"
           />
-          {errors.lastName && <p className="error__message">{errors.lastName}</p>}
+          {errors.lastName && <p className="error__message" id="lastName__error" aria-live="polite">{errors.lastName}</p>}
         </div>
+
+        {/* email */}
         <div className="form__group">
           <label htmlFor="email">Email Address *</label>
           <input
@@ -98,11 +110,14 @@ const App = () => {
             value={formData.email}
             onChange={handleChange}
             aria-required="true"
+            aria-describedby="email-error"
           />
-          {errors.email && <p className="error__message">{errors.email}</p>}
+          {errors.email && <p className="error__message" id="email__error" aria-live="polite">{errors.email}</p>}
         </div>
+
+        {/* query type */}
         <div className="form__group">
-          <fieldset>
+          <fieldset tabIndex="0" aria-required="true" aria-describedby="queryType__error">
             <legend>Query Type *</legend>
             <div className="radio__group">
               <label htmlFor="generalEnquiry">
@@ -131,8 +146,10 @@ const App = () => {
               </label>
             </div>
           </fieldset>
-          {errors.queryType && <p className="error__message">{errors.queryType}</p>}
+          {errors.queryType && <p className="error__message" id="queryType__error" aria-live="polite">{errors.queryType}</p>}
         </div>
+
+        {/* message */}
         <div className="form__group">
           <label htmlFor="message">Message *</label>
           <textarea
@@ -141,10 +158,14 @@ const App = () => {
             value={formData.message}
             onChange={handleChange}
             aria-required="true"
+            aria-describedby="message__error"
           ></textarea>
-          {errors.message && <p className="error__message">{errors.message}</p>}
+          {errors.message && <p className="error__message" id="message-error" aria-live="polite">{errors.message}</p>}
         </div>
-        <div className="form__group checkbox__group">
+
+        {/* consent checkbox */}
+        <div className="form__group ">
+          <div className="checkbox__group">
           <input
             type="checkbox"
             id="consent"
@@ -152,10 +173,12 @@ const App = () => {
             checked={formData.consent}
             onChange={handleChange}
             aria-required="true"
+            aria-describedby="consent-error"
           />
-          <label htmlFor="consent">I consent to being contacted by the team *</label>
-          {errors.consent && <p className="error__message">{errors.consent}</p>}
-        </div>
+          <label htmlFor="consent">I consent to being contacted by the team *</label> 
+       </div>   
+       {errors.consent && <p className="error__message" id="consent-error" aria-live="polite">{errors.consent}</p>}
+       </div>
         <button type="submit" className="submit__button">Submit</button>
       </form>
     </main>
